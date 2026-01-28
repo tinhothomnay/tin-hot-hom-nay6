@@ -1,29 +1,20 @@
-// ===== LINK SHOPEE CỦA BẠN =====
-const SHOPEE_LINK = "https://s.shopee.vn/qdbdeLuMN";
+// ===== LINK SHOPEE =====
+const SHOPEE_LINK = "https://s.shopee.vn/9Uva18NigW";
 
-// ===== BIẾN KIỂM SOÁT CLICK =====
 let clicked = false;
 
-/*
-  LẦN ĐẦU MỞ LINK:
-  - Click ở đâu trên trang cũng mở Shopee
-  - Chỉ 1 lần
-  - Sau đó gỡ overlay để xem nội dung
-*/
+/* Click ở đâu lần đầu cũng mở Shopee */
 document.addEventListener("click", function () {
   if (clicked) return;
   clicked = true;
 
-  // Mở Shopee tab mới
   window.open(SHOPEE_LINK, "_blank");
 
-  // Ẩn overlay nếu có
   const overlay = document.getElementById("overlay");
   if (overlay) overlay.style.display = "none";
 }, { once: true });
 
-
-// ===== LOAD NỘI DUNG THEO ID =====
+/* Load nội dung theo ID */
 const params = new URLSearchParams(window.location.search);
 const id = params.get("id") || "1";
 
@@ -36,37 +27,28 @@ fetch("contents.json")
       return;
     }
 
-    // Tiêu đề & nội dung
-    const titleEl = document.getElementById("title");
-    const contentEl = document.getElementById("content");
+    document.getElementById("title").innerText = item.title;
+    document.getElementById("content").innerText = item.content;
+
     const mediaBox = document.getElementById("media");
+    mediaBox.innerHTML = "";
 
-    if (titleEl) titleEl.innerText = item.title || "";
-    if (contentEl) contentEl.innerText = item.content || "";
-
-    if (mediaBox) {
-      mediaBox.innerHTML = "";
-
-      // Ảnh
-      if (item.images && Array.isArray(item.images)) {
-        item.images.forEach(src => {
-          const img = document.createElement("img");
-          img.src = src;
-          mediaBox.appendChild(img);
-        });
-      }
-
-      // Video
-      if (item.videos && Array.isArray(item.videos)) {
-        item.videos.forEach(src => {
-          const video = document.createElement("video");
-          video.src = src;
-          video.controls = true;
-          mediaBox.appendChild(video);
-        });
-      }
+    if (item.images) {
+      item.images.forEach(src => {
+        const img = document.createElement("img");
+        img.src = src;
+        mediaBox.appendChild(img);
+      });
     }
-  })
-  .catch(err => {
-    console.error("Lỗi load contents.json:", err);
+
+    if (item.videos) {
+      item.videos.forEach(src => {
+        const video = document.createElement("video");
+        video.src = src;
+        video.controls = true;
+        video.playsInline = true;
+        video.preload = "metadata";
+        mediaBox.appendChild(video);
+      });
+    }
   });
