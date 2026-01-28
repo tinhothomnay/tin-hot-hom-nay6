@@ -18,11 +18,11 @@ img, video {
   margin: 15px 0;
 }
 
-/* ===== OVERLAY ===== */
+/* ===== OVERLAY (TRONG – THẤY NỘI DUNG PHÍA SAU) ===== */
 #overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.2);
+  background: rgba(0,0,0,0.25);
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
   display: flex;
@@ -32,7 +32,7 @@ img, video {
   cursor: pointer;
 }
 
-/* Banner box */
+/* Box banner */
 .banner-box {
   position: relative;
 }
@@ -45,7 +45,7 @@ img, video {
   box-shadow: 0 0 25px rgba(0,0,0,0.7);
 }
 
-/* ❌ Tắt */
+/* ❌ giả */
 .fake-close {
   position: absolute;
   top: -10px;
@@ -86,9 +86,19 @@ img, video {
 <div id="overlay">
   <div class="banner-box">
     <span class="fake-close">✕</span>
-    <img
-      src="https://magiamgia.com/wp-content/uploads/2022/12/TikTok-shop-sale-12.12-2.png"
-      alt="Click để tiếp tục"
-    >
+    <img src="media/images/banner.jpg" alt="">
   </div>
 </div>
+
+<h1 id="title"></h1>
+<p id="content"></p>
+<div id="media"></div>
+
+<hr>
+<p class="disclaimer">
+⚠️ Nội dung không cổ xúy, không khuyến khích hay định hướng người xem làm theo dưới mọi hình thức.
+</p>
+
+<script src="script.js"></script>
+</body>
+</html>
