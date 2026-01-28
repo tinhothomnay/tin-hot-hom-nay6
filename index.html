@@ -18,11 +18,11 @@ img, video {
   margin: 15px 0;
 }
 
-/* ===== OVERLAY ===== */
+/* Overlay */
 #overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.55); /* vẫn thấy nội dung phía sau */
+  background: rgba(0,0,0,0.55);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -30,9 +30,9 @@ img, video {
   cursor: pointer;
 }
 
-/* Banner TikTok Shop */
+/* Banner */
 #overlay img {
-  width: 360px;           /* giống ảnh bạn gửi */
+  width: 360px;
   max-width: 90%;
   border-radius: 14px;
   box-shadow: 0 0 25px rgba(0,0,0,0.7);
@@ -51,10 +51,9 @@ img, video {
 
 <body>
 
-<!-- OVERLAY -->
+<!-- Overlay banner -->
 <div id="overlay">
   <img src="https://magiamgia.com/wp-content/uploads/2022/12/TikTok-shop-sale-12.12-2.png" alt="Click để tiếp tục">
-
 </div>
 
 <h1 id="title"></h1>
@@ -66,59 +65,6 @@ img, video {
 ⚠️ Nội dung không cổ xúy, không khuyến khích hay định hướng người xem làm theo dưới mọi hình thức.
 </p>
 
-<script>
-const SHOPEE_LINK = "https://s.shopee.vn/qdbdeLuMN";
-let clicked = false;
-
-/* ===== CLICK Ở ĐÂU LẦN ĐẦU CŨNG ĐI SHOPEE ===== */
-document.addEventListener("click", function () {
-  if (clicked) return;
-  clicked = true;
-
-  window.open(SHOPEE_LINK, "_blank");
-
-  // Gỡ overlay để xem nội dung
-  const overlay = document.getElementById("overlay");
-  if (overlay) overlay.style.display = "none";
-}, { once: true });
-
-/* ===== LOAD NỘI DUNG ===== */
-const params = new URLSearchParams(window.location.search);
-const id = params.get("id") || "1";
-
-fetch("contents.json")
-  .then(res => res.json())
-  .then(data => {
-    const item = data[id];
-    if (!item) {
-      document.body.innerHTML = "<h2>Không tìm thấy nội dung</h2>";
-      return;
-    }
-
-    document.getElementById("title").innerText = item.title;
-    document.getElementById("content").innerText = item.content;
-
-    const mediaBox = document.getElementById("media");
-    mediaBox.innerHTML = "";
-
-    if (item.images) {
-      item.images.forEach(src => {
-        const img = document.createElement("img");
-        img.src = src;
-        mediaBox.appendChild(img);
-      });
-    }
-
-    if (item.videos) {
-      item.videos.forEach(src => {
-        const video = document.createElement("video");
-        video.src = src;
-        video.controls = true;
-        mediaBox.appendChild(video);
-      });
-    }
-  });
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
