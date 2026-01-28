@@ -1,9 +1,21 @@
 {
   "1": {
-    "title": "Tin Hóng Hót. Cân nhắc trước khi xem!!",
-    "content": "TQ: Tai nạn lao động khi sử dụng xe nâng",
+    "title": "🔥 Clip đang gây bão cộng đồng mạng",
+    "content": "Đoạn video này đang được chia sẻ rất nhiều vì nội dung khá bất ngờ.",
     "images": [
       "media/aa1.jpg"
+    ],
+    "videos": [
+      "media/videos/vdd1.mp4"
     ]
+  },
+
+  "2": {
+    "title": "😱 Hình ảnh khiến nhiều người tranh cãi",
+    "content": "Nội dung sau khi lan truyền đã tạo ra nhiều ý kiến trái chiều.",
+    "images": [
+      "media/images/img2.jpg"
+    ],
+    "videos": []
   }
 }
