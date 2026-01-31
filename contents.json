@@ -11,11 +11,14 @@
   },
 
   "2": {
-    "title": "😱 Hình ảnh khiến nhiều người tranh cãi",
-    "content": "Nội dung sau khi lan truyền đã tạo ra nhiều ý kiến trái chiều.",
+    "title": "Bến Sỏi Tây Ninh",
+    "content": "Chưa biết mâu thuẫn gì mà thanh niên chở vợ hoặc ny đến gặp đối thủ, sau khi tranh cãi liền tặng hình xăm không phai vào cổ đối tượng phun như mưa, thấy bảo không qua khỏi",
     "images": [
-      "media/images/img2.jpg"
+      "media/images/a2.png"
     ],
-    "videos": []
+    "videos": [
+      "media/vd2.mp4",
+       "media/vd2-1.mp4"
+    ]
   }
 }
