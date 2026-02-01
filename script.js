@@ -1,5 +1,5 @@
 // ===== LINK SHOPEE =====
-const SHOPEE_LINK = "https://s.shopee.vn/5fix6TZaBO";
+const SHOPEE_LINK = "https://s.shopee.vn/3VeSWg7ymB";
 
 let clicked = false;
 
